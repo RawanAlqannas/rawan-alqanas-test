@@ -115,13 +115,13 @@ export default {
   name: 'App',
   data() {
     return {
-      isArabic: true, 
-      isNightMode: false, 
+      isArabic: false, 
+      isNightMode: true, 
     
-      systemNotification: false,
-      billingCreated: false,
-      backupMaker: false,
-      gotFreeMonth: false,
+      systemNotification: true,
+      billingCreated: true,
+      backupMaker: true,
+      gotFreeMonth: true,
     };
   },
   methods: {

@@ -129,8 +129,8 @@ export default {
   name: 'App',
   data() {
     return {
-      isArabic: true, // Initial language state
-      isNightMode: false, // Initial night mode state
+      isArabic: false, // Initial language state
+      isNightMode: true, // Initial night mode state
     };
   },
   methods: {
@@ -153,7 +153,7 @@ export default {
 
 .sidebar {
   width: 250px; /* Adjust width as needed */
-  background-color: #ffffff; /* White background for sidebar */
+  background-color: #f8f8f8; /* White background for sidebar */
   padding: 20px;
   height: 100vh; /* Full height */
   overflow-y: auto; /* Scrollable sidebar if content exceeds height */
@@ -215,7 +215,7 @@ export default {
 }
 
 .sidebar-item:hover {
-  background-color: #f8f5f5; /* Slightly lighter gray for hover effect */
+  background-color: #c1bfbf; /* Slightly lighter gray for hover effect */
 }
 
 .main-content {
