@@ -31,9 +31,9 @@
           />
         </div>
         <p class="forgot-password">
-          <a href="/forgot-password">Forgot password?</a>
+          <a href="/forgot-password">Forgot Password?</a>
         </p>
-        <button type="submit">Log in</button>
+        <button @click="navigateToSecondPage" class="login-button">Log in</button>
       </form>
       <div class="google-login-container">
         <button @click="handleGoogleLogin" class="google-login">
@@ -60,6 +60,9 @@ export default {
     };
   },
   methods: {
+    navigateToSecondPage(){
+      this.$router.push({ name:'SecondPage'});
+    },
     handleLogin() {
       
       console.log('Email:', this.email);
@@ -104,6 +107,7 @@ export default {
     margin-top: 0.5em; 
   color: white;
   font-size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .right-section {

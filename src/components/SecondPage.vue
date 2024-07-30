@@ -1,12 +1,9 @@
 <template>
   <div id="app" style="background-color: #333333; min-height: 100vh; display: flex;">
-    
     <div class="sidebar">
-      
       <div class="logo-container">
         <img class="logo" src="../assets/git.png" alt="Gittax Logo"/>
       </div>
-
       <ul class="sidebar-menu">
         <li class="sidebar-item">
           <img class="home-icon" src="../assets/Home.jpeg" alt="Home Icon"/>
@@ -15,7 +12,7 @@
         <li class="sidebar-item white-text">
           <img class="Invoices And Reports-icon" src="../assets/Invoices And Reports.png" alt="Report Icon"/>
           Invoices And Reports
-          <span class="arrow-icon">&#9660;</span> 
+          <span class="arrow-icon">&#9660;</span>
         </li>
         <li class="sidebar-item white-text">
           <img class="Services Link-icon" src="../assets/Services.png" alt="Services Icon"/> Services Link
@@ -49,31 +46,28 @@
           </div>
         </li>
         <li class="sidebar-item">
-          <a href="#" class="download-apps-button">DOWNLOAD APPS</a>
+          <a href="#" class="download-apps-button" @click.prevent="showPopup = true">DOWNLOAD APPS</a>
         </li>
       </ul>
     </div>
 
-    
     <div class="main-content" style="flex: 1; color: white; display: flex; flex-direction: column;">
-      
       <div class="notification-setting" style="width: 100%; background-color: #444444; padding: 10px; color: white; display: flex; justify-content: flex-start; align-items: center; flex-direction: column;">
         <span style="margin-left: 20px; text-align: left;">Notification Setting</span>
         <span style="font-size: 12px; margin-top: 5px; text-align: left; margin-left: 20px;"> </span>
       </div>
 
-      
       <div class="notification-switches" style="margin-top: 20px;">
-        
         <div class="switch-item">
           <span>System Notification</span>
           <div class="switch">
             <input type="checkbox" id="system-notification" v-model="systemNotification">
+            <router-link to="/Reports" class="go-report">
             <label for="system-notification" class="slider"></label>
+          </router-link>
           </div>
           <span class="description">All notifications sending by GitTax Team.</span>
         </div>
-        <!-- Billing Created -->
         <div class="switch-item">
           <span>Billing Created</span>
           <div class="switch">
@@ -82,7 +76,6 @@
           </div>
           <span class="description">All Bills created by source or you will make a Successful Notification.</span>
         </div>
-        
         <div class="switch-item">
           <span>Backup Maker</span>
           <div class="switch">
@@ -91,7 +84,6 @@
           </div>
           <span class="description">When your Backup sent to your Mail will Get a Successful Notification.</span>
         </div>
-    
         <div class="switch-item">
           <span>Got Free Month</span>
           <div class="switch">
@@ -102,38 +94,41 @@
         </div>
       </div>
 
-      
       <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
-        
+        <!-- Main content area -->
       </div>
     </div>
+
+    <!-- PopPage Component -->
+    <PopPage v-if="showPopup" @close="showPopup = false"/>
   </div>
 </template>
 
 <script>
+import PopPage from './PopPage.vue';
+
 export default {
-  name: 'App',
+  name: 'SecondPage',
+  components: {
+    PopPage
+  },
   data() {
     return {
       isArabic: false, 
       isNightMode: true, 
-    
+      showPopup: false, // control the visibility of the popup
       systemNotification: true,
       billingCreated: true,
       backupMaker: true,
-      gotFreeMonth: true,
+      gotFreeMonth: true
     };
   },
   methods: {
     toggleLanguage() {
       this.isArabic = !this.isArabic; 
-      
-      
     },
     toggleNightMode() {
       this.isNightMode = !this.isNightMode; 
-      
-    
     }
   }
 };
@@ -337,7 +332,52 @@ input:checked + .slider:before {
   font-size: 12px;
   margin-top: 5px;
 }
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 90%;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-right: 10px;
+  padding: 8px 12px;
+}
 </style>
+
 
 
 

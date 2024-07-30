@@ -65,10 +65,14 @@
             <!-- Checkbox 1 -->
             <div class="checkbox-item">
               <input type="checkbox" id="checkbox1" />
+           
               <label for="checkbox1">
+                <router-link to="/second-page" class="go-report">
                 <span class="checkbox-title">Total Sales</span>
                 <span class="checkbox-description">All invoices with many details you can see as clients and amounts and every things.</span>
+              </router-link>
               </label>
+         
             </div>
             <!-- Checkbox 2 -->
             <div class="checkbox-item">
@@ -289,7 +293,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #7f7e7e;
+  background-color: #c91cec;
   transition: .4s;
   border-radius: 20px;
 }
@@ -379,7 +383,7 @@ input:checked + .slider:before {
   margin-top: 5px; 
 }
 input[type="checkbox"]:checked::before {
-  content: '✔';
+  
   display: block;
   color: #575CD4;
   font-size: 14px;

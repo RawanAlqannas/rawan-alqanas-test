@@ -2,7 +2,7 @@
   <div v-if="showPopup" class="popup-overlay">
     <div class="popup">
       <h2>Testimonial</h2>
-      <form @submit.prevent="saveForm">
+      <form @submit.prevent="submitForm">
         <div class="form-group">
           <label for="username">Username:</label>
           <input type="text" id="username" v-model="username" required>
@@ -15,9 +15,8 @@
           <label for="content">Content:</label>
           <textarea id="content" v-model="content" required></textarea>
         </div>
-        <div class="button-container">
-          <button type="submit" class="save-button">Save</button>
-        </div>
+        <button type="submit">Submit</button>
+        <button type="button" @click="closePopup">Cancel</button>
       </form>
     </div>
   </div>
@@ -34,9 +33,9 @@ export default {
     };
   },
   methods: {
-    saveForm() {
-      // Implement save logic here
-      console.log('Form saved:', this.username, this.companyName, this.content);
+    submitForm() {
+      // Implement form submission logic here
+      console.log('Form submitted:', this.username, this.companyName, this.content);
       this.closePopup();
     },
     closePopup() {
@@ -53,15 +52,14 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(192, 191, 191, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .popup {
-  background: #333333; /* Dark gray background color */
-  color: white; /* White text color */
+  background:#424242;
   padding: 20px;
   border-radius: 5px;
   width: 300px;
@@ -86,36 +84,10 @@ textarea {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  background: #444444; /* Slightly lighter gray for input background */
-  color: white; /* White text color for inputs */
-  border: 1px solid #555555; /* Border color for inputs */
-  border-radius: 3px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-end; /* Align the button to the right */
-}
-
-.save-button {
-  background: yellow; /* Yellow background color for Save button */
-  color: black; /* Black text color for better contrast */
-  text-align: center;
-  padding: 5px 10px; /* Smaller padding for Save button */
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.save-button:hover {
-  background: #ffd700; /* Brighter yellow on hover */
+button {
+  margin-right: 10px;
+  padding: 8px 12px;
 }
 </style>
-
-
-
-
-
-
-
-
-
